@@ -83,9 +83,9 @@ void showPart1(PNT A, PNT B, PNT C, PNT D, PNT E, PNT F) //
 
   float ab = d(A,B), bc = d(B,C), cd = d(C,D); // cpomputes edge lengths
   
-  midLine(A,B,C);
-  midLine(B,C,A);
-  midLine(C,A,B);
+  //midLine(A,B,C);
+  //midLine(B,C,A);
+  //midLine(C,A,B);
   midLinePlus(A,B,C);
   midLinePlus(B,C,A);
   midLinePlus(C,A,B);
@@ -158,7 +158,8 @@ void midLinePlus(PNT A, PNT B, PNT C)
   float b = det(v_B, norm_CB) + det(norm_AB, v_B);
   float c = -0.5 * det(AB, CB);
   
-  float s = (-b + sqrt(b*b - 4 * a * c)) / (2 * a);
+  float s = sqrt(d(A,B)*d(C,B)/2);
+  //float t = d(A,B)*d(C,B)/(2*s)
   
   VCT diff_AB = norm_AB.scaleBy(s);
   VCT diff_CB = norm_CB.scaleBy(s);
